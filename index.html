@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Quehaceres</title>
+    <link rel="stylesheet" href="./index.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>
+            Lista de Quehaceres
+        </h1>
+        <form>
+            <input id="tarea" type="text" placeholder="Agregar Tarea..." />
+            <button id="btn_AgregarTarea"> Agregar Tarea</button>
+        </form>
+        <script>
+            for (let i = 0; i < valores.length; i++) {
+                const textoString = valores[i];
+
+                const nuevoElemento = document.createElement('input');
+                nuevoElemento.setAttribute("type=checkbox");
+                nuevoElemento.innerText = textoString;
+                lista.appendChild(nuevoElemento);
+            }
+            const txtTarea = document.getElementById('tarea');
+            txtTarea.value = localStorage.getItem(txtTarea.value) || '';
+            const btn_AgregarTarea = document.getElementById('btn_AgregarTarea');
+            btn_AgregarTarea.onclick = () => {
+                localStorage.setItem(txtTarea.value, txtTarea.value);
+            };
+        </script>
+        <div>
+            <button id="btn_EliminarTodo">Eliminar Todo</button>
+            <button id="btn_EliminarCompletados">Eliminar Completados</button>
+            <script>
+                btn_EliminarTodo.onclick = () => {
+                    localStorage.clear();
+                };
+            </script>
+        </div>
+    </center>
+</body>
+
+</html>
